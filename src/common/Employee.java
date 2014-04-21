@@ -9,7 +9,7 @@ public class Employee implements Comparable {
     private String firstName;
     private String ssn;
 
-    public Employee(final String lastName, final String firstName, final String ssn) throws IllegalArgumentException {
+    public Employee(final String firstName, final String lastName, final String ssn) throws IllegalArgumentException {
         setLastName(lastName);
         setFirstName(firstName);
         setSsn(ssn);
@@ -82,28 +82,17 @@ public class Employee implements Comparable {
 
     @Override
     public final int compareTo(final Object o) {
-        int returnValue;
-        final int BEFORE = -1;
         final int EQUAL = 0;
-        final int AFTER = 1;
-        Employee e = (Employee)o;
+        Employee e = (Employee) o;
 
-        // The String class already has a compareTo implementation, so
-        // just use that.
         int comparison = this.getSsn().compareTo(e.getSsn());
-        if(comparison <= BEFORE){
-            returnValue = BEFORE;
-        }else if(comparison >= AFTER){
-            returnValue = AFTER;
-        }else{
-            returnValue = EQUAL;
+        if (comparison != EQUAL) {
+            return comparison;
         }
-        //if( comparison != EQUAL) return comparison;
 
-        return comparison; 
+        return EQUAL;
         //return new CompareToBuilder().append(this.getSsn(), obj.getSsn()).toComparison();
-       
-    }
 
+    }
 
 }
