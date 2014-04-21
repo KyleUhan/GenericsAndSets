@@ -1,18 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package common;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.TreeMap;
 
 /**
@@ -37,6 +30,7 @@ public class LabActivity6 {
         employees.add(e5);
 
         Map<String, Employee> employeeTreeMap = new TreeMap<>();
+        //Fill the TreeMap
         for (Employee e : employees) {
             employeeTreeMap.put(e.getSsn(), e);
         }
