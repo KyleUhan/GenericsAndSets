@@ -1,8 +1,9 @@
 package common;
 
 import java.util.*;
+//import org.apache.commons.lang3.builder.CompareToBuilder;
 
-public class Employee {
+public class Employee implements Comparable {
 
     private String lastName;
     private String firstName;
@@ -77,6 +78,31 @@ public class Employee {
     @Override
     public final String toString() {
         return "Employee{" + "lastName=" + lastName + ", firstName=" + firstName + ", ssn=" + ssn + '}';
+    }
+
+    @Override
+    public final int compareTo(final Object o) {
+        int returnValue;
+        final int BEFORE = -1;
+        final int EQUAL = 0;
+        final int AFTER = 1;
+        Employee e = (Employee)o;
+
+        // The String class already has a compareTo implementation, so
+        // just use that.
+        int comparison = this.getSsn().compareTo(e.getSsn());
+        if(comparison <= BEFORE){
+            returnValue = BEFORE;
+        }else if(comparison >= AFTER){
+            returnValue = AFTER;
+        }else{
+            returnValue = EQUAL;
+        }
+        //if( comparison != EQUAL) return comparison;
+
+        return comparison; 
+        //return new CompareToBuilder().append(this.getSsn(), obj.getSsn()).toComparison();
+       
     }
 
 
